@@ -12,9 +12,9 @@ const Home = () => {
             Crunch Your SQL Queries Faster Than You Have Before. Writing Queries
             Has Never Felt Better.
           </h2>
-          {/* <Link to='/editor'>
+          <Link to='/editor'>
             <button className='button'>Get Started</button>
-          </Link> */}
+          </Link>
         </div>
       </div>
       <footer className='footer'>
