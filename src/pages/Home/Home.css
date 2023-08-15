@@ -1,6 +1,6 @@
 .home-background {
     height: 90vh;
-    background-image: url("../../assets/home-header-modern.svg");
+    /* background-image: url("../../assets/home-header-modern.svg"); */
     background-position-x: center;
     background-position-y: 35%;
     background-repeat: no-repeat;
