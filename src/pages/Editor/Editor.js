@@ -6,6 +6,7 @@ import Output from "../../components/Editor/Output";
 import MainContext from "../../MainContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
+import { Navbar } from "../../components/navbar/Navbar";
 
 export function Editor() {
   const [query, setQuery] = useState("SELECT * FROM internetData;");
@@ -22,6 +23,7 @@ export function Editor() {
 
   return (
     <div className='App-Editor'>
+    <Navbar/>
       <MainContext.Provider value={contextValue}>
         <div className='content'>
           <div className='row'>

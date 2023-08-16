@@ -24,16 +24,19 @@ function App() {
 
   return (
     <div className='App' id={`${darkMode ? `dark` : `light`}-mode`}>
+
+
+
       <Suspense
         fallback={
           // <div>Loading ... </div>
           <Loader />
         }
       >
-      
+        
         <Router>
         <Routes>
-       
+          
           <Route path='/' element={<Home/>} />
           <Route exact path='/editor'  element={<Editor/>} />
           <Route exact path='/github'  element={<Social/>} />

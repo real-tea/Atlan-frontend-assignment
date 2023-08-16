@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./Navbar.css";
 import Header from "../Editor/Header";
 
-const Navbar = ({ darkMode, toggleDarkMode }) => {
+export const Navbar = ({ darkMode, toggleDarkMode }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -92,4 +92,4 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
   );
 };
 
-export default Navbar;
+// export default Navbar;

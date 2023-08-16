@@ -1,10 +1,12 @@
 import "./Home.css";
 import LogoSvg from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
+import { Navbar } from "../../components/navbar/Navbar";
 
 export const Home = () => {
   return (
     <div className="home-background">
+    <Navbar/>
       <div className='home-container'>
         <div className='home-heading-container'>
           <h1 className='home-heading'>queryMSTR - Mastering Queries{<br />}</h1>
