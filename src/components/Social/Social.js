@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 
-const Social = () => {
+export const Social = () => {
     useEffect(()=>{
         window.location.href = "https://github.com/real-tea"
     },[]);
@@ -13,7 +13,7 @@ const Social = () => {
     )
 }
 
-export default Social;
+// export default Social;
 
 
 

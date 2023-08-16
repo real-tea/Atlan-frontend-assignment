@@ -2,7 +2,7 @@ import "./Home.css";
 import LogoSvg from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+export const Home = () => {
   return (
     <div className="home-background">
       <div className='home-container'>
@@ -34,4 +34,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+// export default Home;
