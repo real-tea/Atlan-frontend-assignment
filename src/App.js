@@ -1,50 +1,72 @@
-import React, { Suspense, lazy, useState } from "react";
-import { BrowserRouter as Router,Routes , Route } from "react-router-dom";
 import "./App.css";
-import {Loader} from "./components/Loader/Loader";
-
-import {Home} from "./pages/Home/Home"
-import  {Navbar} from "./components/navbar/Navbar"
-import {Social} from "./components/Social/Social";
-import  {Editor}  from "./pages/Editor/Editor"
-
-// const {Home} = lazy(() => import("./pages/Home/Home"));
-// const Navbar = lazy(() => import("./components/navbar/Navbar"));
-// const Github = lazy(() => import("./components/Social/Social"));
-// const Editor = lazy(() => import("./pages/Editor/Editor"));
-
-
+import Header from "./components/navigation/header";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import SideBar from "./components/navigation/sideBar";
+import QueryTabs from "./components/tabs";
+import { useState } from "react";
+import Collapse from "react-bootstrap/Collapse";
+import "@fontsource/raleway";
+import "./css/index.css";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = (checked) => {
-    setDarkMode(checked);
-  };
+  const [activeKey, setActiveKey] = useState("");
+  const [tabs, setTabs] = useState([]);
+  const [queryCount, setQueryCount] = useState(1);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className='App' id={`${darkMode ? `dark` : `light`}-mode`}>
+    <>
+      <Header
+        activeKey={activeKey}
+        setActiveKey={setActiveKey}
+        tabs={tabs}
+        setTabs={setTabs}
+        queryCount={queryCount}
+        setQueryCount={setQueryCount}
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      />
+      <Collapse in={sidebarOpen}>
+        <div>
+          <SideBar
+            activeKey={activeKey}
+            setActiveKey={setActiveKey}
+            tabs={tabs}
+            setTabs={setTabs}
+            mobile
+          />
+        </div>
+      </Collapse>
+      <Container fluid>
+        <Row>
+          <Col lg={2} md={3} className={"d-none d-lg-block d-xl-block"}>
+            <SideBar
+              activeKey={activeKey}
+              setActiveKey={setActiveKey}
+              tabs={tabs}
+              setTabs={setTabs}
+            />
+          </Col>
 
-
-
-      <Suspense
-        fallback={
-          // <div>Loading ... </div>
-          <Loader />
-        }
-      >
-        
-        <Router>
-        <Routes>
-          
-          <Route path='/' element={<Home/>} />
-          <Route exact path='/editor'  element={<Editor/>} />
-          <Route exact path='/github'  element={<Social/>} />
-          </Routes>
-        </Router>
-      
-      </Suspense>
-    </div>
+          <Col
+            lg={10}
+            md={9}
+            style={{
+              padding: "1rem",
+            }}
+          >
+            <QueryTabs
+              tabs={tabs}
+              setTabs={setTabs}
+              activeKey={activeKey}
+              setActiveKey={setActiveKey}
+            />
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 
